@@ -1,0 +1,636 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap');
+
+@keyframes fadeIn {
+    from {
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+
+body {
+    background: #e5ebec;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+img.logo {
+    height: 100%;
+    width: auto;
+}
+
+body > .container {
+    padding: 15px;
+    overflow-x: hidden;
+}
+
+.mh-100 {
+    min-height: 100vh !important;
+}
+
+main.container {
+    padding: 0;
+    max-width: 100vw;
+    margin: 0;
+}
+
+header {
+    height: 85px;
+    background: white;
+    box-shadow: 0 0 4px 0px #00000050;
+    position: fixed;
+    z-index: 99;
+}
+
+section {
+    background: url(/media/elements/BGGridR.png);
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+    section:nth-child(even) {
+        background: url(/media/elements/BGGridL.png);
+        background-position: left;
+        background-repeat: no-repeat;
+    }
+
+nav a.btn, .article-copy a.btn {
+    min-width: 200px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #7d7d7d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: #7d7d7d solid 2px;
+    font-size: 22px;
+    font-weight: 400;
+    position: relative;
+    transition: 0.2s;
+}
+
+    nav a.btn:hover, .world-card .world-copy a.btn:hover {
+        background-color: unset;
+        border: #7d7d7d solid 2px;
+        color: #7d7d7d;
+    }
+
+    .article-copy a.btn:hover:before {
+        content: "";
+        width: 167%;
+        height: 152%;
+        background: url(/media/elements/ButtonPressFrame.png);
+        position: absolute;
+        background-size: cover;
+        background-position-x: 10px;
+        background-position-y: -14px;
+        transition: 0.2s;
+        animation-name: fadeIn;
+        animation-duration: 0.3s;
+    }
+
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top {
+    display: none;
+}
+
+section#hero {
+    padding: 10% 0;
+    height: 85vh;
+}
+
+.mission-wrap h3 {
+    font-size: 52px;
+    font-weight: 900 !important;
+}
+
+.mission-wrap p {
+    font-size: 30px;
+}
+
+.text-shadow {
+    text-shadow: #585858 2px 2px 4px;
+}
+
+.mobile-show {
+    display: none;
+}
+
+.article-box {
+    position: relative;
+}
+
+    .article-box:before {
+        content: "";
+        POSITION: absolute;
+        width: 104%;
+        background: url(/media/elements/Frame1_3_Player_UserSoc.png);
+        height: 107%;
+        background-size: cover;
+        background-position-x: 0px;
+        background-position-y: -12px;
+        opacity: 25%;
+        transition: 0.2s;
+    }
+
+    .article-box:nth-child(even):before {
+        content: "";
+        POSITION: absolute;
+        width: 104%;
+        background: url(/media/elements/Frame2WorldsOfConseq.png);
+        height: 107%;
+        background-size: cover;
+        background-position-x: 0px;
+        background-position-y: -12px;
+        opacity: 35%;
+    }
+
+    .article-box:hover:before {
+        opacity: 100%;
+    }
+
+    .article-box .article-copy {
+        position: absolute;
+        right: 0;
+    }
+
+.vision-1 .article-copy {
+    left: 8px;
+}
+
+.article-copy p {
+    font-size: 22px;
+}
+
+.heading-black {
+    color: #000000;
+    font-size: 50px;
+    font-weight: 900 !important;
+}
+
+h4.vison-title {
+    font-size: 38px;
+}
+
+h5.vison-title {
+    font-size: 30px;
+}
+
+.vision-box:hover {
+    transform: scale(1.02);
+    transition: 0.3s;
+}
+
+.globe video {
+    transform: translateX(-15%);
+    background: #e5ebec;
+}
+
+.team-wrap .socials img {
+    max-width: 40px;
+}
+
+.news-item:nth-child(even) {
+    flex-flow: row-reverse;
+}
+
+.news-item {
+    background: #f1f4f5;
+}
+
+.news-copy {
+    position: absolute;
+    display: block;
+    opacity: 0;
+    transition: 0.3s;
+    padding: 10px;
+    color: #ffffff;
+    max-height: 240px;
+    top: 0;
+    overflow: hidden;
+}
+
+.news-item:hover .news-copy {
+    background: #000000c4;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.news-item h4 {
+    font-size: 18px;
+    min-height: 40px;
+    padding-top: 8px;
+}
+
+button.owl-prev, button.owl-next {
+    width: 30px;
+}
+
+.owl-nav {
+    position: absolute;
+    top: 0;
+    width: 103%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    left: -4px;
+}
+
+button.owl-prev {
+    margin-left: -30px;
+}
+
+button.owl-right {
+    margin-right: -30px;
+}
+
+button.owl-prev span {
+    background: #7d7d7d;
+    padding: 0px 10px;
+    font-size: 30px;
+    pointer-events: all;
+    margin-left: -20px;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.owl-next span {
+    background: #7d7d7d;
+    padding: 0px 10px;
+    font-size: 30px;
+    pointer-events: all;
+    margin-right: -20px;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1.logo br {
+    display: none;
+}
+
+.world-copy {
+    bottom: 0;
+    height: 30%;
+}
+
+    .world-copy p {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .world-copy a.btn {
+        bottom: 11%;
+        right: 3%;
+        padding: 10px;
+        border: #7d7d7d solid 2px;
+        background-color: #7d7d7d;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-size: 24px;
+    }
+
+.world-card {
+    position: relative;
+}
+
+    .world-card.col-lg-6 {
+        width: 45% !important;
+    }
+
+    .world-card:before {
+        content: "";
+        pointer-events: none;
+        width: 105%;
+        background: url(/media/elements/EcoFrame.png);
+        height: 105%;
+        z-index: 10;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: -14px;
+        background-position-y: 0px;
+        opacity: 25%;
+        transition: 0.2s;
+    }
+
+    .world-card:hover:before {
+        opacity: 100%;
+    }
+
+    .world-card:nth-child(even):before {
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        background-position-x: 14px;
+        background-position-y: 0px;
+    }
+
+    .world-card:nth-child(even) .world-copy a.btn {
+        bottom: 12%;
+        left: 3%;
+        padding: 10px;
+    }
+
+@media screen and (max-width: 1400px) and (min-width: 1200px) {
+    .article-box .article-copy {
+        position: absolute;
+        right: 0;
+        padding: 5px !important;
+        height: 75% !important;
+        margin-top: 20px;
+    }
+
+    .article-copy p {
+        font-size: 18px;
+    }
+
+    h4.vison-title {
+        font-size: 28px;
+    }
+
+    h5.vison-title {
+        font-size: 20px;
+        margin-top: -10px;
+    }
+
+    .article-box:hover:before, .article-box:nth-child(even):hover:before {
+        opacity: 100%;
+    }
+
+    .article-box:before {
+        content: "";
+        POSITION: absolute;
+        width: 104%;
+        background: url(/media/elements/Frame1_3_Player_UserSoc.png);
+        height: 107%;
+        background-size: cover;
+        background-position-x: 0px;
+        background-position-y: -11px;
+        opacity: 50%;
+        transition: 0.2s;
+    }
+
+    .article-box:nth-child(even):before {
+        background-position-y: -10px;
+        opacity: 35%;
+    }
+
+    .mobile-show {
+        display: none;
+    }
+
+    .world-copy p {
+        font-size: 16px;
+    }
+
+    .world-copy a.btn {
+        font-size: 18px;
+    }
+
+    .world-card:nth-child(even) .world-copy a.btn {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 999px) {
+    .article-box .article-copy {
+        position: absolute;
+        right: 0;
+        padding: 5px !important;
+        height: 75% !important;
+        margin-top: 20px;
+    }
+
+    .article-copy p {
+        font-size: 14px;
+    }
+
+    h4.vison-title {
+        font-size: 24px;
+    }
+
+    h5.vison-title {
+        font-size: 16px;
+        margin-top: -10px;
+    }
+
+    .article-box:before {
+        content: "";
+        POSITION: absolute;
+        width: 104%;
+        background: url(/media/elements/Frame1_3_Player_UserSoc.png);
+        height: 101%;
+        background-size: cover;
+        background-position-x: 0px;
+        background-position-y: -8px;
+        opacity: 50%;
+        transition: 0.2s;
+    }
+
+    .article-box:nth-child(even):before {
+        content: "";
+        POSITION: absolute;
+        width: 104%;
+        background: url(/media/elements/Frame2WorldsOfConseq.png);
+        height: 101%;
+        background-size: cover;
+        background-position-x: 0px;
+        background-position-y: -8px;
+        opacity: 35%;
+    }
+
+    .article-copy a.btn {
+        min-width: 140px;
+        min-height: 40px;
+        font-size: 16px;
+    }
+
+    .mobile-show {
+        display: none;
+    }
+
+    .world-copy p {
+        font-size: 14px;
+    }
+
+    .world-copy a.btn {
+        font-size: 16px;
+        padding: 4px;
+    }
+
+    .world-card:nth-child(even) .world-copy a.btn {
+        font-size: 16px;
+        padding: 4px;
+    }
+}
+
+@media screen and (max-width: 999px) {
+    div.logo {
+        text-align: center;
+    }
+
+    section, section:nth-child(even) {
+        background-size: cover;
+    }
+
+    .mission-wrap h3 {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .mission-wrap p {
+        font-size: 20px;
+        line-height: 140%;
+    }
+
+    iframe.youtube {
+        width: 100%;
+        height: calc(100vw / 2);
+    }
+
+    .mobile-show {
+        display: block;
+    }
+
+    header {
+        height: fit-content;
+    }
+
+    img.logo {
+        height: auto !important;
+        width: 90% !important;
+    }
+
+    nav a.btn, .article-copy a.btn {
+        font-size: 16px;
+        padding: 5px !important;
+        min-height: unset;
+        min-width: 45%;
+    }
+
+    .globe video {
+        transform: translateX(0%);
+        background: #e5ebec;
+    }
+
+    img.team-links {
+        max-height: 50px;
+    }
+
+    img.headshot {
+        min-width: 200px;
+    }
+
+    .dev-map img {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .article-box .article-copy {
+        position: absolute;
+        right: 0;
+        padding: 5px !important;
+        height: 75% !important;
+    }
+
+    .article-box:before {
+        content: "";
+        POSITION: absolute;
+        width: 104%;
+        background: url(/media/elements/Frame1_3_Player_UserSoc.png);
+        height: 101%;
+        background-size: cover;
+        background-position-x: 0px;
+        background-position-y: -8px;
+        opacity: 50%;
+        transition: 0.2s;
+    }
+
+    .article-box:nth-child(even):before {
+        content: "";
+        POSITION: absolute;
+        width: 104%;
+        background: url(/media/elements/Frame2WorldsOfConseq.png);
+        height: 101%;
+        background-size: cover;
+        background-position-x: 0px;
+        background-position-y: -7px;
+        opacity: 35%;
+    }
+
+    .article-copy p {
+        font-size: 14px;
+        width: 100%;
+        display: none;
+    }
+
+    h4.vison-title {
+        font-size: 12px;
+    }
+
+    h5.vison-title {
+        font-size: 12px;
+    }
+
+    .article-box:before {
+        content: "";
+        POSITION: absolute;
+        width: 104%;
+        background: url(/media/elements/Frame1_3_Player_UserSoc.png);
+        height: 101%;
+        background-size: cover;
+        background-position-x: 0px;
+        background-position-y: -8px;
+        opacity: 50%;
+        transition: 0.2s;
+    }
+
+    .article-copy a.btn {
+        min-width: 140px;
+        min-height: 20px;
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    .world-card.col-12 {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .world-copy a.btn {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .world-copy p {
+        font-size: 17px;
+        font-weight: 600;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .world-copy a.btn, .world-card:nth-child(even) .world-copy a.btn {
+        font-size: 13px;
+        font-weight: 800;
+        padding: 6px;
+        margin: 0px auto;
+        left: 8px;
+        width: 95%;
+        bottom: 12px;
+    }
+
+    .world-copy p {
+        font-size: 11px;
+        font-weight: 800;
+    }
+}

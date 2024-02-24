@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="5.2.8" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.2" />
+    <PackageReference Include="StrangeCloud.Service.Client" Version="1.0.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Account\Login.cshtml">
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Account\Register.cshtml">
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Views\Account\Login.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\Account\Account.cshtml" />
+    <Content Include="Views\_Layout.cshtml" />
+    <Content Include="Views\_ViewImports.cshtml" />
+  </ItemGroup>
+
+</Project>

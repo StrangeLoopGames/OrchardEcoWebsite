@@ -1,0 +1,21 @@
+﻿@model StrangeCloud.Service.Client.Contracts.StrangeUser?;
+@{
+    Layout = "../_Layout";
+}
+<h1>User Account Page</h1>
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Value</th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var property in Model.GetType().GetProperties())
+        {
+            <tr>
+                <td>@property.</td>
+                <td>@property.GetValue(Model)</td>
+            </tr>
+        }
+    }
+</table>

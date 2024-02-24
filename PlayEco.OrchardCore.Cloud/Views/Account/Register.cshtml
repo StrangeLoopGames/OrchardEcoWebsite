@@ -1,0 +1,33 @@
+﻿@using OrchardCore.ContentManagement
+@model PlayEco.OrchardCore.Cloud.Models.RegisterModel;
+@inject IContentManager ContentManager;
+@{
+    Layout = "../_Layout";
+}
+<h1>User Registration Page</h1>
+<div class="login-wrap">
+    <form action="/Account/SubmitRegister" method="post" class="row login-wrap col-4 g-3">
+            <label asp-for="Username">
+                <input type="Username" class="form-control" placeholder="Username" required=true />
+            </label>
+            <label asp-for="Email">
+                <input type="Email" class="form-control" placeholder="Email" required/>
+            </label>    
+            <label asp-for="Password">
+                <input type="Password" class="form-control" placeholder="Password" required/>
+            </label>
+            <label asp-for="ConfirmPassword">
+                <input name="ConfirmPassword" class="form-control" type="password" placeholder="Confirm Password" required/>
+            </label>
+            <label asp-for="AgeConfirmation">
+                <input type="checkbox" id="AgeConfirmation" name="AgeConfirmation" value="AgeConfirmation" required>
+                <span class="checkbox-label">I am over the age of 13 years old</span>
+            </label>
+            <label asp-for="Newsletter">
+                <input type="checkbox" id="Newsletter" name="Newsletter" value="newsletter">
+                <span class="checkbox-label">Join the Eco Newsletter</span>
+            </label>
+                @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-primary">Create an account</button>
+    </form>
+</div>

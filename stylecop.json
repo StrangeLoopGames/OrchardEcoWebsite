@@ -1,0 +1,20 @@
+{
+    "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+    "settings": {
+        "documentationRules": {
+            "companyName": "Strange Loop Games",
+            "copyrightText": "Copyright (c) {companyName}. All rights reserved.",
+            "documentInterfaces": true,
+            "documentInternalElements": false,
+            "xmlHeader": false
+        },
+        "namingRules": {
+            "allowedHungarianPrefixes": [
+                "ui",
+                "io",
+                "ex",
+                "ip"
+            ]
+        }
+    }
+}

@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+	  <TargetFramework>net8.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <Title>Play.eco Website Theme</Title>
+    <Description>The default Theme for the SLG Corporate Website</Description>
+    <PackageTags>OrchardCoreCMS Theme</PackageTags>
+    <CodeAnalysisRuleSet>..\StrangeLoopGames.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OrchardCore.Admin" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.Menu" Version="1.5.0" />
+    <PackageReference Include="OrchardCore.ResourceManagement" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.Theme.Targets" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.Users" Version="1.8.2" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\stylecop.json">
+      <Link>stylecop.json</Link>
+    </AdditionalFiles>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Assets\NewFolder\" />
+  </ItemGroup>
+</Project>
