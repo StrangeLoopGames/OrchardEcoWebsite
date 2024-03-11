@@ -1,5 +1,7 @@
 // Copyright (c) Strange Loop Games. All rights reserved.
 
+using PlayEco.Theme;
+
 namespace OrchardCore.Themes.CompanyTheme
 {
     using Microsoft.Extensions.DependencyInjection;

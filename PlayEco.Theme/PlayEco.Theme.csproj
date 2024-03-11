@@ -16,7 +16,7 @@
     <PackageReference Include="OrchardCore.Admin" Version="1.8.2" />
     <PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.8.2" />
     <PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.2" />
-    <PackageReference Include="OrchardCore.Menu" Version="1.5.0" />
+    <PackageReference Include="OrchardCore.Menu" Version="1.8.2" />
     <PackageReference Include="OrchardCore.ResourceManagement" Version="1.8.2" />
     <PackageReference Include="OrchardCore.Theme.Targets" Version="1.8.2" />
     <PackageReference Include="OrchardCore.Users" Version="1.8.2" />
@@ -33,6 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\NewFolder\" />
+    <Content Include="Views\Content-Header.cshtml" />
   </ItemGroup>
 </Project>

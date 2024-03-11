@@ -5,29 +5,41 @@
     Layout = "../_Layout";
 }
 <h1>User Registration Page</h1>
-<div class="login-wrap">
-    <form action="/Account/SubmitRegister" method="post" class="row login-wrap col-4 g-3">
-            <label asp-for="Username">
-                <input type="Username" class="form-control" placeholder="Username" required=true />
-            </label>
-            <label asp-for="Email">
-                <input type="Email" class="form-control" placeholder="Email" required/>
-            </label>    
-            <label asp-for="Password">
-                <input type="Password" class="form-control" placeholder="Password" required/>
-            </label>
-            <label asp-for="ConfirmPassword">
-                <input name="ConfirmPassword" class="form-control" type="password" placeholder="Confirm Password" required/>
-            </label>
-            <label asp-for="AgeConfirmation">
-                <input type="checkbox" id="AgeConfirmation" name="AgeConfirmation" value="AgeConfirmation" required>
-                <span class="checkbox-label">I am over the age of 13 years old</span>
-            </label>
-            <label asp-for="Newsletter">
-                <input type="checkbox" id="Newsletter" name="Newsletter" value="newsletter">
-                <span class="checkbox-label">Join the Eco Newsletter</span>
-            </label>
-                @Html.AntiForgeryToken()
-            <button type="submit" class="btn btn-primary">Create an account</button>
-    </form>
+<div class="login-wrap d-flex flex-column align-items-center">
+@using (Html.BeginForm("SubmitRegister", "Account", FormMethod.Post, new { @class = "row login-wrap col-4 g-3" }))
+{
+    <div class="form-group row g-1">
+        <label for="Username">Username</label>
+        @Html.TextBoxFor(m => m.Username)
+    </div>
+    <div class="form-group row g-1">
+        <label for="Email">Email</label>
+        @Html.TextBoxFor(m => m.Email, new { type = "email" })
+    </div>
+    <div class="form-group row g-1">
+        <label for="Password">Password</label>
+        @Html.PasswordFor(m => m.Password)
+    </div>
+    <div class="form-group row g-1">
+        <label for="ConfirmPassword">Confirm Password</label>
+        @Html.PasswordFor(m => m.ConfirmPassword)
+    </div>
+    <div class="form-group row g-1">
+        <label for="AgeConfirmation">Age Confirmation</label>
+        @Html.CheckBoxFor(m => m.AgeConfirmation)
+        <span class="checkbox-label">I am over the age of 13 years old</span>
+    </div>
+    <div class="form-group row g-1">
+        <label for="Newsletter">Join the newsletter</label>
+        @Html.CheckBoxFor(m => m.Newsletter)
+        <span class="checkbox-label">Join the Eco Newsletter</span>
+    </div>
+    <div class="form-group row g-1">
+        <button type="submit" class="btn btn-primary">Create an account</button>
+    </div>
+    <div class="login-actions d-flex justify-content-between">
+        <a href="/Account/Forgot">Forgot your password?</a>
+        <a href="/Account/Login">Login</a>
+    </div>
+}
 </div>

@@ -1,7 +1,6 @@
 ﻿
 using System.Net;
 using System.Net.Http.Headers;
-using Microsoft.AspNetCore.Http;
 using PlayEco.OrchardCore.Cloud.Models;
 using StrangeCloud.Service.Client;
 using StrangeCloud.Service.Client.Contracts;
@@ -14,13 +13,14 @@ namespace PlayEco.OrchardCore.Cloud.Services
         private readonly UserAccountClient _userAccountClient;
         private readonly HttpClient _httpClient;
         private readonly RegistrationClient _registrationClient;
-
+        private readonly PasswordResetClient _passwordResetClient;
         public UserManagementService()
         {
             _httpClient = new HttpClient();
             _authenicationClient = new AuthenticationClient("https://cloud.strangeloopgames.com/", _httpClient);
             _userAccountClient = new UserAccountClient("https://cloud.strangeloopgames.com/", _httpClient);
             _registrationClient = new RegistrationClient("https://cloud.strangeloopgames.com/", _httpClient);
+            _passwordResetClient = new PasswordResetClient("https://cloud.strangeloopgames.com/", _httpClient);
         }
         public async Task<(bool success, AuthenticationResult user)> AuthenticateUserSlg(LoginViewModel request)
         {
@@ -29,26 +29,22 @@ namespace PlayEco.OrchardCore.Cloud.Services
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
             return (true, result);
         }
-        public async Task <(bool success, string token)> RegisterUserSlg(RegisterModel request)
+        public async Task <(bool success, AuthenticationResult user)> RegisterUserSlg(RegisterModel request)
         {
-            var result = await _registrationClient.RegisterUserAsync(request.Username, request.Password, request.Email,"");
-            if (result.Token == null) return (false, "");
+            var result = await _registrationClient.RegisterUserAsync(request.Username, request.Email, request.Password,"1");
+            if (result.Token == null) return (false, null)!;
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
-            return (true, result.Token);
+            return (true, result);
         }
-        public async Task<(bool success,StrangeUser? userAccount, string? message)> GetUser()
+        public async Task<bool> RequestReset(ForgotModel request)
         {
-            try
-            {
-                var result = await _userAccountClient.GetAccountAsync("");
-                return (true, result, "User found successfully");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return (false, null, e.Message);
-            }
-
+            var result = await _passwordResetClient.RequestResetAsync(request.Email, "1");
+            return result.StatusCode == (int)HttpStatusCode.OK;
+        }
+        public async Task<bool> ResetPassword(ResetModel request)
+        {
+            var result = await _passwordResetClient.ResetPasswordAsync(request.Token, request.Password, "1");
+                return result.StatusCode == (int)HttpStatusCode.OK;
         }
     }
 }

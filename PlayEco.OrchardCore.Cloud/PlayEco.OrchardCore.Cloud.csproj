@@ -17,7 +17,7 @@
     <PackageReference Include="OrchardCore.ContentManagement" Version="1.8.2" />
     <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.8.2" />
     <PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.2" />
-    <PackageReference Include="StrangeCloud.Service.Client" Version="1.0.15" />
+    <PackageReference Include="StrangeCloud.Service.Client" Version="1.0.22" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,8 +35,15 @@
 
   <ItemGroup>
     <Content Include="Views\Account\Account.cshtml" />
+    <Content Include="Views\Account\Forgot.cshtml" />
+    <Content Include="Views\Account\Reset.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\_Layout.cshtml" />
     <Content Include="Views\_ViewImports.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\" />
   </ItemGroup>
 
 </Project>

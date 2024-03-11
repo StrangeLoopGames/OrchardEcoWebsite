@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.Modules;
+using static System.TimeSpan;
 
 namespace PlayEco.OrchardCore.Cloud
 {
@@ -9,17 +11,18 @@ namespace PlayEco.OrchardCore.Cloud
     {
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddDistributedMemoryCache(); // Add distributed memory cache
+            services.AddSession();
+            services.AddHttpContextAccessor();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddDistributedMemoryCache();
             services.AddSession(options =>
             {
-                options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;
+                options.IdleTimeout = FromMinutes(60);
             });
         }
 
         public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         {
-            builder.UseSession();
             routes.MapAreaControllerRoute(
                 name: "Accounts",
                 areaName: "PlayEco.OrchardCore.Cloud",
@@ -38,6 +41,8 @@ namespace PlayEco.OrchardCore.Cloud
                 pattern: "Register",
                 defaults: new { controller = "Account", action = "Register" }
             );
+            builder.UseSession();
+            builder.UseStaticFiles();
         }
         
     }

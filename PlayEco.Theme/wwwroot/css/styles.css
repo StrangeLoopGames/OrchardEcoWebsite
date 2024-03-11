@@ -11,12 +11,14 @@
 }
 
 body {
-    background: #e5ebec;
     margin: 0;
     padding: 0;
     font-family: 'Lato', sans-serif;
+    background: #4688c0;
 }
-
+body.account-page {
+    background:url(../images/cubes.png);
+}
 img.logo {
     height: 100%;
     width: auto;
@@ -36,15 +38,41 @@ main.container {
     max-width: 100vw;
     margin: 0;
 }
-
 header {
     height: 85px;
-    background: white;
     box-shadow: 0 0 4px 0px #00000050;
-    position: fixed;
+    position: absolute;
     z-index: 99;
+    background: none;
+    width: 100%;
+    display: flex;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    flex-direction: row;
 }
-
+header .menu-wrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: center;
+}
+header .navbar-nav {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    align-items: center;
+}
+header .navbar-nav li a {
+    font-size: 25px;
+    line-height: 60px;
+    margin-left: 20px;
+    font-family: abel, sans-serif;
+    color: #ffffff;
+}
 section {
     background: url(/media/elements/BGGridR.png);
     background-position: right;
@@ -56,29 +84,7 @@ section {
         background-position: left;
         background-repeat: no-repeat;
     }
-
-nav a.btn, .article-copy a.btn {
-    min-width: 200px;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    background-color: #7d7d7d;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: #7d7d7d solid 2px;
-    font-size: 22px;
-    font-weight: 400;
-    position: relative;
-    transition: 0.2s;
-}
-
-    nav a.btn:hover, .world-card .world-copy a.btn:hover {
-        background-color: unset;
-        border: #7d7d7d solid 2px;
-        color: #7d7d7d;
-    }
+    
 
     .article-copy a.btn:hover:before {
         content: "";

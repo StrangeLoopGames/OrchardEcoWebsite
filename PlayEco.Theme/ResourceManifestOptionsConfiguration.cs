@@ -1,10 +1,10 @@
 // Copyright (c) Strange Loop Games. All rights reserved.
 
-namespace OrchardCore.Themes.CompanyTheme
-{
-    using Microsoft.Extensions.Options;
-    using OrchardCore.ResourceManagement;
+using Microsoft.Extensions.Options;
+using OrchardCore.ResourceManagement;
 
+namespace PlayEco.Theme
+{
     public class ResourceManagementOptionsConfiguration : IConfigureOptions<ResourceManagementOptions>
     {
         private static readonly ResourceManifest Manifest;
@@ -12,10 +12,10 @@ namespace OrchardCore.Themes.CompanyTheme
         static ResourceManagementOptionsConfiguration()
         {
             Manifest = new ResourceManifest();
-
+            
             Manifest
-                .DefineStyle("CompanyTheme-bootstrap-oc")
-                .SetUrl("~/StrangeLoopGames.CompanyTheme/css/bootstrap-oc.min.css", "~/StrangeLoopGames.CompanyTheme/css/bootstrap-oc.css")
+                .DefineStyle("PlayEco-css")
+                .SetUrl("~/PlayEco.Theme/css/styles.css", "~/PlayEco.Theme/css/styles.css")
                 .SetVersion("1.0.0");
         }
 

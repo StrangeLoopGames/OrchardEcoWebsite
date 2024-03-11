@@ -1,21 +1,76 @@
 ﻿@model StrangeCloud.Service.Client.Contracts.StrangeUser?;
+@using PlayEco.OrchardCore.Cloud.Controllers
+
 @{
     Layout = "../_Layout";
 }
-<h1>User Account Page</h1>
-<table>
-    <tr>
-        <th>Property</th>
-        <th>Value</th>
-    </tr>
-    @if (Model != null)
-    {
-        foreach (var property in Model.GetType().GetProperties())
+<section class="container d-flex flex-column gap-3">
+    <h1>User Account Page</h1>
+    <table>
+        <tr>
+            <th>Property</th>
+            <th>Value</th>
+        </tr>
+        @if (Model != null)
         {
-            <tr>
-                <td>@property.</td>
-                <td>@property.GetValue(Model)</td>
-            </tr>
+            
+            <div id="overview" class="account-feature d-flex flex-column bg-light p-3 shadow rounded">
+                <h4>Account</h4>
+                <div class="account-info d-flex">
+                    <div class="avatar">
+                        <img src="@Model.AvatarUrl" alt="Avatar" />
+                    </div>
+                    <ul>
+                        <li><span>Username: </span>@Model.Username</li>
+                        <li><span>User ID: </span>@Model.Id</li>
+
+                    </ul>
+                    <div class="btn-actions ms-auto">
+                        <a class="btn btn-primary" href="/buy">Upgrade</a>
+                        <div class="btn btn-primary" onclick="if (!window.__cfRLUnblockHandlers) return false; $(this).parent().next().slideToggle()">Change Icon</div>
+                        <div class="btn btn-primary" id="account-edit" onclick="if (!window.__cfRLUnblockHandlers) return false; $(this).parent().next().next().slideToggle()">Edit Account</div>
+                        <a class="btn btn-primary" href="/Account/Logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div id="downloads" class="account-feature d-flex flex-column bg-light p-3 shadow rounded">
+                <h4>Downloads</h4>
+            </div>
+            <div id="invites" class="account-feature d-flex flex-column bg-light p-3 shadow rounded">
+                <h4>Invites</h4>
+            </div>
+            <div id="steam" class="account-feature d-flex flex-column bg-light p-3 shadow rounded">
+                <h4>Steam</h4>
+            </div>
+            <div id="twitch" class="account-feature d-flex flex-column bg-light p-3 shadow rounded">
+                <h4>Twitch</h4>
+            </div>
+            foreach (var property in Model.GetType().GetProperties())
+            {
+                <tr>
+                    <td>@property.Name</td>
+                    <td>@property.GetValue(Model)</td>
+                </tr>
+            }
         }
-    }
-</table>
+    </table>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Replace the URL with the actual URL of your controller action
+        fetch('/News')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
+    });
+    </script>
+    <partial name="_NewsPartial" />
+</section>
